@@ -41,10 +41,9 @@ Airplane.prototype.land = function () {
 
 function Person(name, age) {
   this.name = name,
-  this.age =  age
+  this.age = age,
+  this.stomach = []
 }
-
-Person.prototype.stomach = [];
 
 Person.prototype.eat = function(someFood) {
   if (this.stomach.length < 10) {
@@ -75,15 +74,32 @@ Person.prototype.toString = function() {
 
 function Car(model, milesPerGallon) {
   this.model = model,
-  this.milesPerGallon = milesPerGallon
+  this.milesPerGallon = milesPerGallon,
+  this.tank = 0,
+  this.odometer = 0
 }
 
-Car.prototype.tank = 0;
-Car.prototype.odometer = 0;
 Car.prototype.fill = function(gallons) {
   this.tank += gallons
 }
+Car.prototype.drive = function(distance) {
+  if (this.tank === 0) {
+    console.log(`you're out of gas!`)
+  } else if (this.tank*this.milesPerGallon >= distance) 
+    {this.odometer += distance;
+      this.tank = this.tank - (distance/this.milesPerGallon)
+  } else {
+    console.log(`you won't make it!`)
+  }
+}
 
+const myElement = new Car('element', 20);
+myElement.fill(5);
+myElement.drive(100);
+console.log(myElement.tank, myElement.odometer)
+
+// myElement.drive(1000000);
+// console.log(myElement.odometer)
 
 /*
   TASK 3

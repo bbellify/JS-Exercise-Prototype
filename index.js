@@ -100,10 +100,10 @@ function Baby() {
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window binding - when in global scope, 'this' is bound to the window/console object
+  2. Implicit binding - when a function is called by a preceding dot, 'this' will refer to the object left of the dot 
+  3. New binding - when a constructor function is used, 'this' refers to the new specific instance of the object being created
+  4. Explicit binding - when a .call/.apply/.bind method is used, 'this' is explicitly defined 
 */
 
 
